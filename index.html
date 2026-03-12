@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webbapplikation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigationsmeny -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" data-page="home">Hem</a></li><!--datapage för att kunna ändra i js-->
+                <li><a href="#" class="nav-link" data-page="posts">Inlägg</a></li><!--data-page="kontakt är som class="nav-link active" i css"-->
+                <li><a href="#" class="nav-link" data-page="contact">Kontakt</a></li>
+            </ul><!--data-page förknippat med document.getElementById(this.dataset.page).classList.add("active");
+            klickar man på kontakt så hämtas "contact" eller så hämtas "Home"-->
+        </nav>
+    </header>
+    <!-- Huvudinnehåll -->
+    <main>
+        <!-- Hemsida -->
+        <section id="home" class="page active">
+            <h1>Välkommen till PostApp</h1>
+            <p>Denna applikation visar inlägg, användarprofiler och kommentarer. Du kan navigera med menyn ovan.</p>
+        </section>
+        <!-- Inläggssida -->
+        <section id="posts" class="page">
+            <h1>Inlägg</h1>
+            <div id="post-list"></div><!--skapas i HTML för att ge en plats där JavaScript kan lägga till de hämtade inläggen. Den gör det också möjligt att styla innehållet i CSS-->
+            <!--js som sätter kommentarerna i html, detta görs i js i displayPosts(posts)-->
+
+            <button id="load-more">Ladda fler</button>
+        </section>
+        <!-- Kontaktsida -->
+        <section id="contact" class="page">
+            <h1>Kontakt</h1>
+            <form id="contact-form">
+                <label for="name">Namn:</label>
+                <input type="text" id="name" required>
+                <span class="error" id="name-error"></span>
+
+                <label for="email">E-post:</label>
+                <input type="email" id="email" required>
+                <span class="error" id="email-error"></span>
+
+                <label>
+                    <input type="checkbox" id="confirm"> Bekräfta att skicka
+                </label>
+                <span class="error" id="confirm-error"></span>
+
+                <button type="submit" id="send-btn" disabled>Skicka</button>
+            </form>
+        </section>
+    </main>
+    <!-- Användarmodal -->
+    <div id="user-modal" class="modal"><!-- själva popup-fönstret. Det är från början gömt (display: none; i CSS)-->
+        <div class="modal-content"><!--den vita rutan som visas inuti pop-up-fönstret-->
+            <span class="close">&times;</span><!--stängningsknapp (×). När du klickar på den försvinner pop-up-fönstret-->
+            <h2 id="user-name"></h2><!--Här visas användarens namn när popup-fönstret öppnas-->
+            <p id="user-email"></p><!--Här visas användarens e-postadress-->
+            <p id="user-address"></p><!--Här visas användarens adress-->
+        </div>
+    </div>
+    <script src="script.js"></script><!--script.js innehåller kod som gör att pop-up-fönstret visas när man klickar på ett namn och 
+    försvinner när man klickar på ×, JavaScript-koden hämtas till HTML-filen-->
+</body>
+</html>

@@ -1,0 +1,171 @@
+/* Allmänna inställningar */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+/* Navigationsfält */
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+
+nav ul li a.active {
+    border-bottom: 3px solid #ffcc00;
+}
+
+/* Sidlayout */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Dölja sektioner som inte är aktiva */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Inläggsstyling */
+#post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/*post-bakgrund-i inlägg*/
+.post {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/*varje inläggs utseende*/
+.post h2 {
+    margin: 0;
+}
+
+/*inläggs-texten*/
+.post p {
+    font-size: 14px;
+    color: #555;
+}
+
+.post .username {
+    font-weight: bold;
+    color: #007bff;
+    cursor: pointer;
+}
+
+/* Knapp för att ladda fler inlägg */
+#load-more {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    background: #007bff;
+    color: white; /*texten Ladda fler*/
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#load-more:hover {
+    background: #05f248;
+}
+/*slut på inlägg*/
+
+/* Kontaktformulär */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /*flikarnas positioner i förhållande till varan upp och ner*/
+}
+
+input[type="text"], input[type="email"] {
+    padding: 8px; /*flikarnas tjocklek*/
+    border: 1px solid #ccc; /*konturer*/
+    border-radius: 5px;
+}
+
+/*knappen Skicka när allt är korrekt ifyllt*/
+button {
+    padding: 10px;
+    border: none;
+    background: #28a745;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/*knappen skicka innan man fyllt i*/
+button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Felmeddelanden när man fyller i */
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+/* Modal för användarprofiler */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.close {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
